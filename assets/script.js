@@ -42,24 +42,49 @@ answer: "Nintendo"
 ]
 // All my variables
 var score = 0;
-var timeLeft = 10;
+var timeLeft = 60;
 var qindex = 0;
 var countdown = document.querySelector("#start");
 var actualTime = document.querySelector("#timer");
 var showQuestions = document.querySelector("#questions");
+var showChoices = document.querySelector("#Choices");
+var options = document.createElement("ul");
+
+
+
 
 // Click event & timer countdown function
 countdown.addEventListener("click", function() {
     console.log("button is clicking");
     // Sets interval in variable
     var timerInterval = setInterval(function() {
-      timeLeft--;
-      actualTime.textContent = "Seconds Left: " + timeLeft;
-  
-      if(timeLeft === 0) {
-        // Stops execution of action at set interval
-        clearInterval(timerInterval);
-      }
-  
+        timeLeft--;
+        actualTime.textContent = "Seconds Left: " + timeLeft;
+        
+        if(timeLeft === 0) {
+            // Stops execution of action at set interval
+            clearInterval(timerInterval);
+        }
+        
     }, 1000);
-  });
+    nextQuestion();
+  },
+  );
+  // Function to show questions on screen
+  function nextQuestion (){
+      qindex++;
+      if (qindex === questions.length){
+          finish();
+          return;
+        }
+        var thisQuestion = questions[qindex];
+        showQuestions.innerHTML = "<p>" + thisQuestion.question + "</p>";
+        options.innerHTML = "";
+        var theseChoices = questions[qindex].choices;
+       theseChoices.forEach(function (newButton){
+           var choice = document.createElement("button");
+           choice.textContent= newButton;
+           showQuestions.appendChild(options);
+           options.appendChild(choice);
+       })
+    }

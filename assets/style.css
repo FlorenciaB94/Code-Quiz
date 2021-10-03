@@ -30,3 +30,11 @@ button {
   font-family: "Maven Pro", sans-serif;
   font-size: 25px;
 }
+p {
+  font-family: "Maven Pro", sans-serif;
+  font-size: 25px;
+  text-align: center;
+  padding-top: 100px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
