@@ -24,9 +24,15 @@ h1 {
   display: hide;
 }
 button {
-  display: grid;
-  margin: auto;
-  margin-top: 55px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 10px;
+  font-family: "Maven Pro", sans-serif;
+  font-size: 25px;
+}
+#start {
+  margin: 0 auto;
+  display: block;
   font-family: "Maven Pro", sans-serif;
   font-size: 25px;
 }

@@ -47,7 +47,7 @@ var qindex = 0;
 var countdown = document.querySelector("#start");
 var actualTime = document.querySelector("#timer");
 var showQuestions = document.querySelector("#questions");
-var showChoices = document.querySelector("#Choices");
+var showChoices = document.querySelector("#choices");
 var options = document.createElement("ul");
 
 
@@ -68,10 +68,11 @@ countdown.addEventListener("click", function() {
         
     }, 1000);
     nextQuestion();
-  },
-  );
+  },);
   // Function to show questions on screen
   function nextQuestion (){
+
+      
       qindex++;
       if (qindex === questions.length){
           finish();
@@ -79,12 +80,45 @@ countdown.addEventListener("click", function() {
         }
         var thisQuestion = questions[qindex];
         showQuestions.innerHTML = "<p>" + thisQuestion.question + "</p>";
-        options.innerHTML = "";
+        // options.innerHTML = "";
         var theseChoices = questions[qindex].choices;
-       theseChoices.forEach(function (newButton){
-           var choice = document.createElement("button");
-           choice.textContent= newButton;
-           showQuestions.appendChild(options);
-           options.appendChild(choice);
-       })
-    }
+        theseChoices.forEach(function (newButton){
+            var choice = document.createElement("button");
+            choice.textContent= newButton;
+            showChoices.appendChild(choice);
+            // options.appendChild(choice);
+            //    console.log(typeof choice);
+            //  console.log(choice);
+            //  console.log(choice.textContent);
+            // choiceText = choice.textContent.toString();
+            //  console.log(choiceText);
+            //  console.log (typeof choiceText);
+             console.log(options);
+
+
+
+            choice.addEventListener("click",function () {
+                var right = questions[qindex].answer;
+                if (options.choiceText === right);
+                console.log("right answer selected");
+                if (options.choiceText !== right);
+                console.log("wrong answer selected");
+            });
+            
+        });
+    };
+
+
+
+    // I need a function to check answers,
+
+    // function checkAnswer(){
+    //     var right = questions[qindex].answer;
+    //     if (choiceText === right);
+    //     console.log("right answer selected");
+    //     if (thisQuestion.choices !== right);
+    //     console.log("wrong answer selected");
+    // };
+
+
+    /// I need a function to end game finish
